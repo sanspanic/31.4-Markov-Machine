@@ -13,6 +13,7 @@ const readFromAxios = async (url) => {
     generateText(res.data);
   } catch (err) {
     console.log("Oops, something went wrong:", err);
+    process.exit(1);
   }
 };
 
@@ -20,6 +21,7 @@ const readFromFile = (file) => {
   fs.readFile(file, "utf8", (err, data) => {
     if (err) {
       console.log("Could not read file", err);
+      process.exit(1);
     } else {
       generateText(data);
     }
